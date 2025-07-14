@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio - Software Developer</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts: Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #333333;
+            --secondary-color: #FFFFFF;
+            --text-color: #333333;
+            --accent-color: #555555;
+            --card-bg-color: rgba(240, 240, 240, 0.9);
+            --border-glow-color: rgba(0, 0, 0, 0.2);
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #F8F8F8 0%, #FFFFFF 50%, #F8F8F8 100%);
+            color: var(--text-color);
+            min-height: 100vh;
+            scroll-behavior: smooth;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 0.75rem;
+            padding: 0.85rem 2rem;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            font-size: 2.25rem;
+            font-weight: 800;
+            margin-bottom: 2.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 3.5rem;
+            }
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            margin: 0.75rem auto 0;
+            border-radius: 2px;
+        }
+
+        .base-card {
+            background-color: var(--card-bg-color);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(5px);
+        }
+        @media (min-width: 768px) {
+            .base-card {
+                padding: 2.5rem;
+            }
+        }
+        .base-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 0 30px var(--border-glow-color);
+            border-color: var(--primary-color);
+        }
+
+        .social-icon {
+            color: var(--text-color);
+            font-size: 2rem;
+            transition: color 0.3s ease, transform 0.2s ease;
+            margin: 0 0.8rem;
+        }
+        @media (min-width: 768px) {
+            .social-icon {
+                font-size: 2.8rem;
+                margin: 0 1.2rem;
+            }
+        }
+        .social-icon:hover {
+            color: var(--primary-color);
+            transform: translateY(-5px) scale(1.1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        #home {
+            background: radial-gradient(circle at top left, rgba(0, 0, 0, 0.05) 0%, transparent 40%),
+                        radial-gradient(circle at bottom right, rgba(0, 0, 0, 0.05) 0%, transparent 40%),
+                        linear-gradient(135deg, #F8F8F8 0%, #FFFFFF 50%, #F8F8F8 100%);
+            background-blend-mode: overlay;
+        }
+        #home h1 {
+            font-size: 2.25rem;
+        }
+        #home p {
+            font-size: 1rem;
+        }
+        @media (min-width: 640px) {
+            #home h1 { font-size: 3rem; }
+            #home p { font-size: 1.25rem; }
+        }
+        @media (min-width: 768px) {
+            #home h1 { font-size: 5.5rem; }
+            #home p { font-size: 2rem; }
+        }
+        @media (min-width: 1024px) {
+            #home h1 { font-size: 8rem; }
+            #home p { font-size: 2.5rem; }
+        }
+
+        section {
+            padding: 4rem 1rem;
+        }
+        @media (min-width: 768px) {
+            section {
+                padding: 6rem 2rem;
+            }
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            border-top-color: var(--accent-color);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <main>
+        <!-- Home Section (Hero) -->
+        <section id="home" class="min-h-screen flex flex-col items-center justify-center text-center px-4 py-16 animate-fade-in relative">
+            <div class="max-w-5xl mx-auto z-10">
+                <h1 class="font-extrabold leading-tight mb-6">
+                    Hello, I'm <span class="text-primary-color">Aditya</span>
+                </h1>
+                <p class="mb-10 font-light">
+                    A final year CSE student specializing in building <span class="text-accent-color font-medium">innovative software solutions</span>.
+                </p>
+                <a href="#projects" class="btn-primary inline-block mb-12">Explore My Work</a>
+
+                <!-- Social Icons -->
+                <div class="flex justify-center mt-10">
+                    <a href="https://www.linkedin.com/in/adityamirgal/" target="_blank" aria-label="LinkedIn" class="social-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/AdityaMirgal7" target="_blank" aria-label="GitHub" class="social-icon">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:your.email@example.com" aria-label="Email" class="social-icon">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <!-- Resume Icon -->
+                    <a href="path/to/your/resume.pdf" target="_blank" aria-label="Resume" class="social-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-24 px-4 bg-secondary-color animate-fade-in">
+            <div class="container mx-auto max-w-6xl">
+                <h2 class="text-center section-title">About Me</h2>
+                <div class="flex flex-col md:flex-row items-center gap-12 mt-12">
+                    <div class="md:w-1/3 flex justify-center">
+                        <!-- Placeholder for your image -->
+                        <img src="pfp.jpg" alt="Your Photo" class="rounded-full object-cover shadow-xl border-4 border-primary-color animate-fade-in">
+                    </div>
+                    <div class="md:w-2/3 leading-relaxed text-justify">
+                        <p class="mb-6 text-lg md:text-xl text-text-color">
+                            Hello! I'm a final-year Computer Science & Engineering student with a strong passion for building innovative software solutions. My journey in tech has been driven by curiosity and a desire to create impactful applications.
+                        </p>
+                        <p class="mb-6 text-lg md:text-xl text-text-color">
+                            I specialize in [MERN stack stack for web development, or mobile app development with React Native]. I am committed to writing clean, efficient, and scalable code, always striving for best practices and continuous improvement.
+                        </p>
+                        <p class="text-lg md:text-xl text-text-color">
+                            Other than coding, I enjoy videography and filmmaking. I'm always eager to collaborate on exciting projects and connect with fellow creators.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-24 px-4 bg-secondary-color animate-fade-in">
+            <div class="container mx-auto max-w-6xl">
+                <h2 class="text-center section-title">My Skills</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mt-12">
+                    <!-- Development Skills Card -->
+                    <div class="base-card p-8 text-center">
+                        <h3 class="mb-4"><strong>Skills</strong></h3>
+                        <ul class="list-none space-y-3">
+                            <li>C Programming</li>
+                            <li>Java Programming</li>
+                            <li>HTML5</li>
+                            <li>JavaScript (ES6+)</li>
+                            <li>React.js</li>
+                            <li>React Native</li>
+                            <li>Node.js</li>
+                        </ul>
+                    </div>
+                    <!-- Tools & Databases Card -->
+                    <div class="base-card p-8 text-center">
+                        <h3 class="mb-4"><strong>Tools & Databases</strong></h3>
+                        <ul class="list-none space-y-3">
+                            <li>Git, GitHub</li>
+                            <li>Postman</li>
+                            <li>MySQL,MongoDB</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-24 px-4 bg-secondary-color animate-fade-in">
+            <div class="container mx-auto max-w-6xl">
+                <h2 class="text-center section-title">My Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-12">
+                    <!-- Example Project Card 1 -->
+                    <div class="base-card p-8">
+                        <h3 class="mb-3"><strong>BRGH Survey Website</strong></h3>
+                        <p class="mb-4">This is a survey website made for Bai Ratanbai Gharda Hospital, Lavel. This allows them to carry their surveys online, reducing the efforts to maintain the paperworks.</p>
+                        <div class="flex flex-wrap gap-2 mb-5">
+                        </div>
+                        <div class="project-links text-lg flex gap-5">
+                            <a href="https://brbg.infinityfreeapp.com" target="_blank" class="hover:underline">Live Demo</a>
+                            <a href="https://github.com/AdityaMirgal7/brgh-survey-web.git" target="_blank" class="hover:underline">GitHub</a>
+                        </div>
+                    </div>
+
+
+                    <!-- Example Project Card 2 -->
+                    <div class="base-card p-8">
+                        <h3 class="mb-3"><strong>WearCraft</strong></h3>
+                        <p class="mb-4">WearCraft is a platform for clothes printing buisness, here users can customize the products according to their likes and get the products.</p>
+                        <!-- <div class="flex flex-wrap gap-2 mb-5">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Django</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                        </div> -->
+                        <div>
+                            <br>
+                            <br>
+                        </div>
+                        <div class="project-links text-lg flex gap-5">
+                            <a href="https://shopwearcraft.vercel.app/" target="_blank" class="hover:underline">Live Demo</a>
+                            <a href="https://github.com/AdityaMirgal7/wearcraft.git" target="_blank" class="hover:underline">GitHub</a>
+                        </div>
+                    </div>
+
+
+                    <!-- Example Project Card 3 -->
+                    <!-- <div class="base-card p-8">
+                        <h3 class="mb-3">Project Title Three</h3>
+                        <p class="mb-4">A brief description of Project Three, showcasing its unique features and your contribution. Built with [mention technologies].</p>
+                        <div class="flex flex-wrap gap-2 mb-5">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                        </div>
+                        <div class="project-links text-lg">
+                            <a href="#" target="_blank" class="hover:underline">Live Demo</a>
+                            <a href="#" target="_blank" class="hover:underline">GitHub</a>
+                        </div>
+                    </div> -->
+
+
+                    <!-- Add more project cards as needed -->
+
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    
+
+    <script>
+        // Smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
